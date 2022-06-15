@@ -1,8 +1,9 @@
 import './App.css';
-import { Card, Row, Col, Divider, Input, Button } from 'antd';
+import { Row, Divider, Button } from 'antd';
 import foodJSON from './foods.json';
 import { useState } from 'react';
 import useItems from 'antd/lib/menu/hooks/useItems';
+import FoodBox from './components/FoodBox';
 
 function App() {
   const [food, setFood] = useState(foodJSON);
@@ -17,23 +18,9 @@ function App() {
       <Divider>Food List</Divider>
 
       <Row style={{ width: '100%', justifyContent: 'center' }}>
-        {food.map((item, index) => {
-          return (
-            <Col>
-              <Card
-                title={item.name}
-                style={{ width: 230, height: 300, margin: 10 }}
-              >
-                <img src={item.image} height={60} alt="food" />
-                <p>Calories: {item.calories}</p>
-                <p>Servings: {item.servings}</p>
-                <p>
-                  <b>Total Calories: {item.calories * item.servings} </b> kcal
-                </p>
-                <Button type="primary"> Delete </Button>
-              </Card>
-            </Col>
-          );
+        {food.map((item) => {
+          console.log(item);
+          return <FoodBox food={item} />;
         })}
       </Row>
     </div>
