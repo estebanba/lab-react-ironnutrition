@@ -2,10 +2,10 @@ import { Divider, Input } from 'antd';
 import React, { useState } from 'react';
 
 function AddFoodForm(props) {
-  const [name, setName] = useState('hamburgesa');
-  const [image, setImage] = useState('some picture');
-  const [calories, setCalories] = useState(100);
-  const [servings, setServings] = useState(1);
+  const [name, setName] = useState('');
+  const [image, setImage] = useState('');
+  const [calories, setCalories] = useState();
+  const [servings, setServings] = useState();
 
   const handleChange = (event) => {
     const currentValue = event.target.value;
