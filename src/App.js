@@ -16,6 +16,14 @@ function App() {
     setFood(updatedFoodArr);
   };
 
+  const deleteFood = (foodName) => {
+    console.log('food to be deleted: ', foodName);
+    const tempFood = JSON.parse(JSON.stringify(food));
+    const newArr = tempFood.filter((item) => item.name !== foodName);
+    console.log('new array: ', tempFood);
+    setFood(newArr);
+  };
+
   return (
     <div className="App">
       <AddFoodForm addFood={addNewFood} />
@@ -32,7 +40,7 @@ function App() {
             return item.name.toLowerCase().includes(searchFood.toLowerCase());
           })
           .map((item) => {
-            return <FoodBox food={item} />;
+            return <FoodBox food={item} deleteFood={deleteFood} />;
           })}
       </Row>
     </div>

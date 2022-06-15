@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Divider, Input } from 'antd';
 
 function Search({ searchFood, setSearchFood }) {
